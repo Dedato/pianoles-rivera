@@ -18,7 +18,59 @@
     // All pages
     'common': {
       init: function() {
-        // JavaScript to be fired on all pages
+        /*
+         * NAVIGATION
+         */
+        // jQuery to collapse the navbar on scroll
+        $(window).scroll(function() {
+          if ($(".navbar").offset().top > 50) {
+            $(".navbar-fixed-top").addClass("top-nav-collapse");
+          } else {
+            $(".navbar-fixed-top").removeClass("top-nav-collapse");
+          }
+        });
+        // jQuery for page scrolling feature - requires jQuery Easing plugin
+        $(function() {
+          $('a.page-scroll').bind('click', function(event) {
+            var $anchor = $(this);
+            $('html, body').stop().animate({
+              scrollTop: $($anchor.attr('href')).offset().top
+            }, 1500, 'easeInOutExpo');
+            event.preventDefault();
+          });
+        });
+        // Toggle fullscreen mobile menu with button
+        $('.navbar-toggle').click(function(){
+          $(this).toggleClass('close');
+          if($('body').hasClass('show-nav')){
+            $('body').removeClass('show-nav').addClass('hide-nav');
+            setTimeout(function(){
+              $('body').removeClass('hide-nav');
+            }, 500);
+          } else {
+            $('body').removeClass('hide-nav').addClass('show-nav');
+          }
+          return false;
+        });
+        // Hide fullscreen mobile menu with escape
+        $(document).keyup(function(e){
+          if(e.keyCode === 27){
+            if($('.navbar-toggle').hasClass('close')){
+              $('.navbar-toggle').removeClass('close');
+            }
+            // Main Nav
+            if($('body').hasClass('show-nav')){
+              $('body').removeClass('show-nav').addClass('hide-nav');
+              setTimeout(function(){
+                $('body').removeClass('hide-nav');
+              }, 500);
+            }
+          }
+        });
+        // Closes the Responsive Menu on Menu Item Click
+        $('.navbar-collapse ul.main-nav li a').click(function() {
+          $('.navbar-toggle:visible').click();
+        });
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
@@ -31,12 +83,6 @@
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
-      }
-    },
-    // About us page, note the change from about-us to about_us.
-    'about_us': {
-      init: function() {
-        // JavaScript to be fired on the about us page
       }
     }
   };

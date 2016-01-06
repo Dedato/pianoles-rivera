@@ -5,9 +5,7 @@
         <span class="sr-only">{{ __('Toggle navigation', 'pianoles-rivera') }}</span>
         <span class="lines"></span>
       </button>
-      <a class="navbar-brand page-scroll" href="{% if is_404 %}{{site.url}}{% endif %}#page-top">
-        <img src="{{theme.uri}}/dist/svg/pianoles-rivera_logo.svg" onerror="this.onerror=null; this.src='{{theme.uri}}/dist/images/pianoles-rivera_logo.png'" width="225" height="92" alt="{{site.title}}">
-      </a>
+      <a class="navbar-brand page-scroll" href="{% if is_404 %}{{site.url}}{% endif %}#page-top">{{site.title}}</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="main-nav nav navbar-nav">

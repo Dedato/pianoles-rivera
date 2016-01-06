@@ -1,0 +1,18 @@
+{% for content in section.section_content %}
+  <section class="{{content.acf_fc_layout}}">
+    {% if content.acf_fc_layout == 'content_image_text' %}
+      <header class="image-header">
+        <div class="container">
+          <img src="{{TimberImage(content.section_image).src|resize(1140, 200)}}" />
+        </div>
+      </header>
+      <div class="container">
+        {{content.section_content}}
+      </div>
+    {% elseif content.acf_fc_layout == 'content_accent_text' %}
+      <div class="container">
+        {{content.section_content}}
+      </div>
+    {% endif %}
+  </section>
+{% endfor %}

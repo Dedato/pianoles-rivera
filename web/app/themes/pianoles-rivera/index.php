@@ -18,27 +18,4 @@ $context['post']        = Timber::get_post();
 $context['sections']    = get_field('one_page_sections');
 $templates              = array('index.twig');
 
-
-if( have_rows('one_page_sections') ):
-  while ( have_rows('one_page_sections') ) : the_row();
-    if( get_row_layout() == 'artist_grid' ):
-      // Get connected artists
-      $ids  = get_sub_field('section_artists', false, false);
-      $args = array(
-        'post_type'       => 'artist',
-        'post__in'		    => $ids,
-        //'orderby'       => 'post__in',
-        'orderby'         => 'name',
-        'order'           => 'ASC',
-        'posts_per_page'	=> -1
-      );
-      $context['artists'] = Timber::get_posts($args);
-    elseif( get_row_layout() == 'carousel' ):  
-      $context['slides']  = get_sub_field('section_slides');
-    elseif( get_row_layout() == 'social_media_grid' ):  
-      $context['networks'] = get_sub_field('section_social_networks');  
-    endif;
-  endwhile;
-endif;
-
 Timber::render( $templates, $context );
