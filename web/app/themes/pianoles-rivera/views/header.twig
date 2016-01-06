@@ -1,0 +1,38 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle lines-button x">
+        <span class="sr-only">{{ __('Toggle navigation', 'pianoles-rivera') }}</span>
+        <span class="lines"></span>
+      </button>
+      <a class="navbar-brand page-scroll" href="{% if is_404 %}{{site.url}}{% endif %}#page-top">
+        <img src="{{theme.uri}}/dist/svg/pianoles-rivera_logo.svg" onerror="this.onerror=null; this.src='{{theme.uri}}/dist/images/pianoles-rivera_logo.png'" width="225" height="92" alt="{{site.title}}">
+      </a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="main-nav nav navbar-nav">
+        <li class="hidden"><a href="#page-top"></a></li>
+        <!-- Section Links -->
+        {% for section in post.get_field('one_page_sections') %}
+          {% if section.section_nav_visibility != 'no' %}
+            <li class="menu-item {{section.section_nav_title|sanitize}}"><a class="page-scroll" href="{% if is_404 %}{{site.url}}{% endif %}#{{section.section_nav_title|sanitize}}" title="{{section.section_nav_title}}">{{section.section_nav_title}}</a></li>
+          {% endif %}      
+        {% endfor %}
+        <!-- Menu Links -->
+        {% if main_menu.get_items %}
+          {% for item in main_menu.get_items %}
+            <li class="{{item.classes|join(' ')}}"><a href="{{item.get_link}}" title="{{item.title}}" target="{{item.target}}">{{item.title}}</a>
+              {% if item.get_children %}
+                <ul class="nav-drop">
+                  {% for child in item.get_children %}
+                    <li class="nav-drop-item"><a href="{{child.get_link}}">{{child.title}}</a></li>
+                  {% endfor %}
+                </ul>
+               {% endif %}
+            </li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>

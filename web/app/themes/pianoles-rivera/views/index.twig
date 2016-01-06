@@ -1,0 +1,18 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	{% for section in sections %}
+	  <section id="{{section.section_nav_title|sanitize}}" class="{{section.acf_fc_layout}}" {% if section.section_bg_color %} style="background-color:{{section.section_bg_color}};" {% endif %}>
+      {% if section.acf_fc_layout == 'fs_video' %}
+        {% set video = random(section.section_videos) %}
+        {% include 'fs_video.twig' %}
+      {% elseif section.acf_fc_layout == 'artist_grid' %}
+        {% include 'artist_grid.twig' %}
+      {% elseif section.acf_fc_layout == 'carousel' %}
+        {% include 'carousel.twig' %}
+      {% elseif section.acf_fc_layout == 'social_media_grid' %}
+        {% include 'social_media_grid.twig' %}
+      {% endif %}
+	  </section>
+  {% endfor %}
+{% endblock %}

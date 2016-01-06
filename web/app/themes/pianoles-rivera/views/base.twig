@@ -1,0 +1,22 @@
+	{% block head %}
+	  {% include 'head.twig' %}
+	{% endblock %}
+  </head>
+	<body id="page-top" class="{{body_class}}" data-template="base.twig" data-spy="scroll" data-target=".navbar-fixed-top">
+	  <!--[if IE 8]>
+      <div class="alert alert-warning">
+        {{ __('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'gloam') }}
+      </div>
+    <![endif]-->
+		{% block header %}
+		  {% include 'header.twig' %}
+    {% endblock %}
+    {% block content %}
+		  Sorry, no content
+    {% endblock %}
+		{% block footer %}
+		  {% include 'footer.twig' %}
+			{{ function('wp_footer') }}
+		{% endblock %}
+	</body>
+</html>
