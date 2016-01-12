@@ -1,20 +1,22 @@
 {% extends "base.twig" %}
 
 {% block content %}
-  <section id="intro">
-    <img src="{{TimberImage(post.get_field('header_image')).src|resize(1680, 466)}}" />
-    <div class="container">
-      <p>{{post.content}}</p>
-    </div>
-  </section>
 	{% for section in sections %}
-	  <section id="{{section.section_nav_title|sanitize}}" class="{{section.acf_fc_layout}}" {% if section.section_bg_color %} style="background-color:{{section.section_bg_color}};" {% endif %}>
-      <div class="container"><h2>{{section.section_title}}</h2></div>
-      {% if section.acf_fc_layout == 'normal' %}
-        {% include 'section.twig' %}
-      {% elseif section.acf_fc_layout == 'chapters' %}
-        {% include 'section-chapters.twig' %}
-      {% endif %}
+	  <section id="{{section.section_nav_title|sanitize}}" {% if section.section_bg_color or section.section_bg_image %} style="{% if section.section_bg_color %}background-color:{{section.section_bg_color}}; {% endif %}{% if section.section_bg_image %} background-image:url('{{TimberImage(section.section_bg_image).src|resize(1680)}}'); {% endif %}" {% endif %}>
+	    <div class="section-header container"><h2>{{section.section_title}}</h2></div>
+      {% for content in section.section_flex_content %}
+        <div class="section-content layout_{{content.acf_fc_layout}}" {% if content.layout_bar_color %} style="background-color:{{content.layout_bar_color}};" {% endif %}>
+          {% if content.acf_fc_layout == '1_col_normal' %}
+            {% include 'section.twig' %}
+          {% elseif content.acf_fc_layout == '2_col_image_text' %}
+            {% include 'section-image.twig' %}
+          {% elseif content.acf_fc_layout == 'icon_list' %}
+            {% include 'section-icon-list.twig' %}
+          {% elseif content.acf_fc_layout == 'color_bar' %}
+            {% include 'section-color-bar.twig' %}   
+          {% endif %}
+        </div>
+      {% endfor %}
 	  </section>
   {% endfor %}
 {% endblock %}
