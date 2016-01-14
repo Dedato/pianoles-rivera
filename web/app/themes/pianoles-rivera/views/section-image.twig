@@ -1,3 +1,36 @@
 <div class="container">
-  {{content.layout_content}}
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      {% if content.layout_image %}
+        {% set image        = TimberImage(content.layout_image) %}
+        {# Define the image sizes #}
+        {% set image_sizes  = [[
+          [262, 0, 'center', 767], 
+          [738, 0, 'center']
+        ], [262, 0, 'center'] ] %}
+        {# Define picture sources #}
+        {% set sources      = [] %}
+        {% for size in image_sizes[0] %}
+          {% if image.width >= (size[0] * 2) %}
+            {% set sources = sources|merge(
+              [{ src1x:       image.src|resize(size[0], size[1], size[2]), 
+                 src2x:       image.src|resize((size[0] * 2), (size[1] * 2), size[2]), 
+                 breakpoint:  size[3] 
+              }]
+            ) %}
+          {% else %}
+            {% set sources = sources|merge(
+              [{ src1x:       image.src|resize(size[0], size[1], size[2]),
+                 breakpoint:  size[3] 
+              }]
+            ) %}
+          {% endif %}
+        {% endfor %}
+        {# Define the fallback image #}
+        {% set fallback = image.src|resize(image_sizes[1][0], image_sizes[1][1], image_sizes[1][2]) %}
+        {{ function('Roots\\Sage\\RespPicture\\create_resp_picture', 0, '', false, sources, fallback, image.alt) }}
+      {% endif %}
+    </div>
+    <div class="col-xs-12 col-sm-5">{{content.layout_content}}</div>
+  </div>
 </div>

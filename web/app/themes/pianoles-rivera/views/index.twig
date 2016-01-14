@@ -2,21 +2,59 @@
 
 {% block content %}
 	{% for section in sections %}
-	  <section id="{{section.section_nav_title|sanitize}}" {% if section.section_bg_color or section.section_bg_image %} style="{% if section.section_bg_color %}background-color:{{section.section_bg_color}}; {% endif %}{% if section.section_bg_image %} background-image:url('{{TimberImage(section.section_bg_image).src|resize(1680)}}'); {% endif %}" {% endif %}>
-	    <div class="section-header container"><h2>{{section.section_title}}</h2></div>
-      {% for content in section.section_flex_content %}
-        <div class="section-content layout_{{content.acf_fc_layout}}" {% if content.layout_bar_color %} style="background-color:{{content.layout_bar_color}};" {% endif %}>
-          {% if content.acf_fc_layout == '1_col_normal' %}
-            {% include 'section.twig' %}
-          {% elseif content.acf_fc_layout == '2_col_image_text' %}
-            {% include 'section-image.twig' %}
-          {% elseif content.acf_fc_layout == 'icon_list' %}
-            {% include 'section-icon-list.twig' %}
-          {% elseif content.acf_fc_layout == 'color_bar' %}
-            {% include 'section-color-bar.twig' %}   
+	  <section id="{{section.section_nav_title|sanitize}}" {% if section.section_bg_image %}class="has-bg"{% endif %} {% if section.section_bg_color %}style="background-color:{{section.section_bg_color}};"{% endif %}>
+	    {% if section.section_bg_image %}
+        {% set image        = TimberImage(section.section_bg_image) %}
+        {# Define the image sizes #}
+        {% set image_sizes  = [[
+          [1920, 0, 'center', 1600], 
+          [1600, 0, 'center', 1440], 
+          [1440, 0, 'center', 1280], 
+          [1280, 0, 'center', 1024], 
+          [1024, 0, 'center', 768], 
+          [768, 0, 'center']
+        ], [1280, 0, 'center'] ] %}
+        {# Define picture sources #}
+        {% set sources      = [] %}
+        {% for size in image_sizes[0] %}
+          {% if image.width >= (size[0] * 2) %}
+            {% set sources = sources|merge(
+              [{ src1x:       image.src|resize(size[0], size[1], size[2]), 
+                 src2x:       image.src|resize((size[0] * 2), (size[1] * 2), size[2]), 
+                 breakpoint:  size[3] 
+              }]
+            ) %}
+          {% else %}
+            {% set sources = sources|merge(
+              [{ src1x:       image.src|resize(size[0], size[1], size[2]),
+                 breakpoint:  size[3] 
+              }]
+            ) %}
           {% endif %}
-        </div>
-      {% endfor %}
+        {% endfor %}
+        {# Define the fallback image #}
+        {% set fallback = image.src|resize(image_sizes[1][0], image_sizes[1][1], image_sizes[1][2]) %}
+        {{ function('Roots\\Sage\\RespPicture\\create_resp_picture', 0, ['fs-bg-img'], false, sources, fallback, image.alt) }}
+	    {% endif %}
+	    <div class="center">
+  	    <div class="section-header container"><h2>{{section.section_title}}</h2></div>
+        {% for content in section.section_flex_content %}
+          {% if content.layout_bar_color %}
+            {% set bar_color_rgb = function('Roots\\Sage\\Extras\\hex2rgb', content.layout_bar_color) %}
+          {% endif %}
+          <div class="section-content layout_{{content.acf_fc_layout}}" {% if bar_color_rgb %} style="background-color:rgba({{bar_color_rgb[0]}},{{bar_color_rgb[1]}},{{bar_color_rgb[2]}},0.8);" {% endif %}>
+            {% if content.acf_fc_layout == '1_col_normal' %}
+              {% include 'section.twig' %}
+            {% elseif content.acf_fc_layout == '2_col_image_text' %}
+              {% include 'section-image.twig' %}
+            {% elseif content.acf_fc_layout == 'icon_list' %}
+              {% include 'section-icon-list.twig' %}
+            {% elseif content.acf_fc_layout == 'color_bar' %}
+              {% include 'section-color-bar.twig' %}   
+            {% endif %}
+          </div>
+        {% endfor %}
+	    </div>      
 	  </section>
   {% endfor %}
 {% endblock %}

@@ -1,0 +1,75 @@
+// Wrapper and base class
+.navbar {
+  border: none;
+}
+
+// Navbar collapse (body)
+.navbar-collapse {
+  padding-right: $navbar-padding-horizontal;
+  padding-left:  $navbar-padding-horizontal;
+  border-top: none;
+  box-shadow: none;
+}
+
+// Brand/project name
+.navbar-brand {
+  display: block;
+  float: none;
+  line-height: 1;
+  height: auto;
+  transition: all 0.25s ease;
+  > img {
+    transition: opacity 0.25s ease;
+  }
+  &:hover,
+  &:focus {
+    outline: none;
+    > img {
+      opacity: 0.9;
+    }
+  }
+}
+
+// Navbar toggle
+.navbar-toggle {
+  position: absolute;
+  top: ($grid-gutter-width / 2);
+  right: 0;
+  margin: 0 ($grid-gutter-width / 2) 0 0;
+  padding: 0;
+  border: none;
+  // Bars
+  .icon-bar {
+    display: block;
+    width: $grid-gutter-width;
+    height: 3px;
+    border-radius: 0;
+    transition: all 0.25s ease;
+  }
+  .icon-bar + .icon-bar {
+    margin-top: 7px;
+  }
+  &:hover,
+  &:focus {
+    .icon-bar {
+      background: $gray;
+    }
+  }
+}
+
+
+// Navbar nav links
+.navbar-nav {
+  margin: 0;
+}
+
+// Default navbar
+.navbar-default {
+  border: none;
+  background: rgba($navbar-default-bg, 0.1);
+  .navbar-nav {
+    > li > a {
+      transition: all .25s ease;
+    }
+  }
+}

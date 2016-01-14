@@ -1,3 +1,17 @@
 <div class="container">
-  {{content.layout_content}}
+  {% if content.layout_list %}
+    <ul class="icon-list">
+      {% for item in content.layout_list %}
+        <li class="{{item.list_item_title|sanitize}} row">
+          <div class="list-icon col-xs-12 col-sm-2">
+            <span class="lnr lnr-{{item.list_item_icon}}"></span>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <h3 class="list-title">{{item.list_item_title}}</h3>
+            <div class="list-content">{{item.list_item_content}}</div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 </div>
