@@ -24,6 +24,19 @@ function body_class($classes) {
 }
 add_filter('body_class', __NAMESPACE__ . '\\body_class');
 
+
+/**
+ * Prevent WYSIWYG editor of stripping empty html tags
+ */
+function override_mce_options($initArray) {
+  $opts = '*[*]';
+  $initArray['valid_elements'] = $opts;
+  $initArray['extended_valid_elements'] = $opts;
+  return $initArray;
+}
+add_filter('tiny_mce_before_init', __NAMESPACE__ . '\\override_mce_options');
+
+
 /**
  * Clean up the_excerpt()
  */
@@ -31,6 +44,14 @@ function excerpt_more() {
   return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'sage') . '</a>';
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
+
+
+/**
+ *  WPML cleanup
+ */
+define('ICL_DONT_LOAD_NAVIGATION_CSS', true);
+define('ICL_DONT_LOAD_LANGUAGE_SELECTOR_CSS', true);
+define('ICL_DONT_LOAD_LANGUAGES_JS', true);
 
 
 /**

@@ -1,4 +1,11 @@
 <div class="container">
+  {% if content.layout_heading %}
+	  {% if loop.index0 == 0 %}
+      <h2>{{content.layout_heading}}</h2>
+    {% else %}
+      <h3>{{content.layout_heading}}</h3>
+    {% endif %}
+  {% endif %}
   <div class="row">
     <div class="col-xs-12 col-sm-3">
       {% if content.layout_image %}

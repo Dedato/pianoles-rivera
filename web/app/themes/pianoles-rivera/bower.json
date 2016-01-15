@@ -41,7 +41,8 @@
         "./assets/javascripts/bootstrap/transition.js",
         "./assets/javascripts/bootstrap/alert.js",
         "./assets/javascripts/bootstrap/button.js",
-        "./assets/javascripts/bootstrap/collapse.js"
+        "./assets/javascripts/bootstrap/collapse.js",
+        "./assets/javascripts/bootstrap/scrollspy.js"
       ]
     },
     "respimage": {

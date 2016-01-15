@@ -13,20 +13,10 @@
 
 // Brand/project name
 .navbar-brand {
-  display: block;
-  float: none;
-  line-height: 1;
-  height: auto;
   transition: all 0.25s ease;
-  > img {
-    transition: opacity 0.25s ease;
-  }
   &:hover,
   &:focus {
     outline: none;
-    > img {
-      opacity: 0.9;
-    }
   }
 }
 
@@ -66,10 +56,58 @@
 // Default navbar
 .navbar-default {
   border: none;
-  background: rgba($navbar-default-bg, 0.1);
+  background: rgba($navbar-default-bg, 0.25);
+  transition: background .25s ease;
+  &.top-nav-collapse {
+    background: rgba($navbar-default-bg, 0.85);
+  }
   .navbar-nav {
     > li > a {
       transition: all .25s ease;
+    }
+  }
+}
+
+// WPML Default Language Switcher
+#lang_sel {
+  float: right;
+  ul {display: inline-block; }
+  li {width: auto; }
+  a {
+    padding: (($navbar-height - $font-size-base) / 2) 0;
+    background: none;
+    border: none;
+    color: $white;
+    font-size: $font-size-base;
+    line-height: 0;
+    &.lang_sel_sel {
+      background: none;
+      padding-right: 20px;
+      color: $navbar-default-link-color;
+      &:after {
+        position: absolute;
+        top: (($navbar-height - $font-size-base) / 2);
+        right: 0;
+        height: $font-size-base;
+        content: '';
+        -moz-osx-font-smoothing: grayscale;
+        font-family: Linearicons-Free;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 400;
+        line-height: 1;
+        text-transform: none;
+			}
+			&:hover,
+			&:focus,
+			&.focus {
+  			color: $navbar-default-link-hover-color;
+			}
+    }
+    img.iclflag {
+      display: inline-block;
+      height: $font-size-base;
+      width: auto;
     }
   }
 }

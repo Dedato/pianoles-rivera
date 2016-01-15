@@ -23,10 +23,10 @@
          */
         // jQuery to collapse the navbar on scroll
         $(window).scroll(function() {
-          if ($(".navbar").offset().top > 50) {
-            $(".navbar-fixed-top").addClass("top-nav-collapse");
+          if ($('.navbar').offset().top > 70) {
+            $('.navbar-fixed-top').addClass('top-nav-collapse');
           } else {
-            $(".navbar-fixed-top").removeClass("top-nav-collapse");
+            $('.navbar-fixed-top').removeClass('top-nav-collapse');
           }
         });
         // jQuery for page scrolling feature - requires jQuery Easing plugin
@@ -38,38 +38,6 @@
             }, 1500, 'easeInOutExpo');
             event.preventDefault();
           });
-        });
-        // Toggle fullscreen mobile menu with button
-        $('.navbar-toggle').click(function(){
-          $(this).toggleClass('close');
-          if($('body').hasClass('show-nav')){
-            $('body').removeClass('show-nav').addClass('hide-nav');
-            setTimeout(function(){
-              $('body').removeClass('hide-nav');
-            }, 500);
-          } else {
-            $('body').removeClass('hide-nav').addClass('show-nav');
-          }
-          return false;
-        });
-        // Hide fullscreen mobile menu with escape
-        $(document).keyup(function(e){
-          if(e.keyCode === 27){
-            if($('.navbar-toggle').hasClass('close')){
-              $('.navbar-toggle').removeClass('close');
-            }
-            // Main Nav
-            if($('body').hasClass('show-nav')){
-              $('body').removeClass('show-nav').addClass('hide-nav');
-              setTimeout(function(){
-                $('body').removeClass('hide-nav');
-              }, 500);
-            }
-          }
-        });
-        // Closes the Responsive Menu on Menu Item Click
-        $('.navbar-collapse ul.main-nav li a').click(function() {
-          $('.navbar-toggle:visible').click();
         });
       },
       finalize: function() {

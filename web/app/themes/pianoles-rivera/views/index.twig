@@ -10,23 +10,62 @@
           [1920, 0, 'center', 1600], 
           [1600, 0, 'center', 1440], 
           [1440, 0, 'center', 1280], 
-          [1280, 0, 'center', 1024], 
-          [1024, 0, 'center', 768], 
-          [768, 0, 'center']
+          [0, 1200, 'center', 1024], 
+          [0, 1600, 'center', 768], 
+          [0, 2000, 'center']
         ], [1280, 0, 'center'] ] %}
         {# Define picture sources #}
         {% set sources      = [] %}
         {% for size in image_sizes[0] %}
-          {% if image.width >= (size[0] * 2) %}
+          {# If only width is set #}
+          {% if size[1] == 0 %}
+            {% if image.width >= (size[0] * 2) %}
+              {% set sources = sources|merge(
+                [{ src1x:       image.src|resize(size[0], size[1], size[2]), 
+                   src2x:       image.src|resize((size[0] * 2), (size[1] * 2), size[2]), 
+                   breakpoint:  size[3] 
+                }]
+              ) %}
+            {% elseif image.width >= size[0] %}
+              {% set sources = sources|merge(
+                [{ src1x:       image.src|resize(size[0], size[1], size[2]),
+                   breakpoint:  size[3] 
+                }]
+              ) %}
+            {% else %}
+              {% set sources = sources|merge(
+                [{ src1x:       image.src,
+                   breakpoint:  size[3] 
+                }]
+              ) %}
+            {% endif %}
+          {# If only height is set #}
+          {% elseif size[0] == 0 %}
+            {% if image.height >= (size[1] * 2) %}
+              {% set sources = sources|merge(
+                [{ src1x:       image.src|resize(size[0], size[1], size[2]), 
+                   src2x:       image.src|resize((size[0] * 2), (size[1] * 2), size[2]), 
+                   breakpoint:  size[3] 
+                }]
+              ) %}
+            {% elseif image.height >= size[1] %}
+              {% set sources = sources|merge(
+                [{ src1x:       image.src|resize(size[0], size[1], size[2]),
+                   breakpoint:  size[3] 
+                }]
+              ) %}
+            {% else %}
+              {% set sources = sources|merge(
+                [{ src1x:       image.src,
+                   breakpoint:  size[3] 
+                }]
+              ) %}
+            {% endif %}
+          {# Default #}
+          {% else %}
             {% set sources = sources|merge(
               [{ src1x:       image.src|resize(size[0], size[1], size[2]), 
                  src2x:       image.src|resize((size[0] * 2), (size[1] * 2), size[2]), 
-                 breakpoint:  size[3] 
-              }]
-            ) %}
-          {% else %}
-            {% set sources = sources|merge(
-              [{ src1x:       image.src|resize(size[0], size[1], size[2]),
                  breakpoint:  size[3] 
               }]
             ) %}
@@ -37,12 +76,20 @@
         {{ function('Roots\\Sage\\RespPicture\\create_resp_picture', 0, ['fs-bg-img'], false, sources, fallback, image.alt) }}
 	    {% endif %}
 	    <div class="center">
-  	    <div class="section-header container"><h2>{{section.section_title}}</h2></div>
-        {% for content in section.section_flex_content %}
-          {% if content.layout_bar_color %}
-            {% set bar_color_rgb = function('Roots\\Sage\\Extras\\hex2rgb', content.layout_bar_color) %}
+  	    <div class="section-header container">
+  	      {% if loop.index0 == 0 %}
+  	        <h1>{{section.section_title}}</h1>
+          {% else %}
+            <h2>{{section.section_title}}</h2>
           {% endif %}
-          <div class="section-content layout_{{content.acf_fc_layout}}" {% if bar_color_rgb %} style="background-color:rgba({{bar_color_rgb[0]}},{{bar_color_rgb[1]}},{{bar_color_rgb[2]}},0.8);" {% endif %}>
+        </div>
+        {% for content in section.section_flex_content %}
+          {% if content.acf_fc_layout == 'color_bar' and content.layout_bar_color %}
+            {% set bar_color_rgb = function('Roots\\Sage\\Extras\\hex2rgb', content.layout_bar_color) %}
+          {% else %}
+            {% set bar_color_rgb = null %}
+          {% endif %}
+          <div class="section-content layout_{{content.acf_fc_layout}}" {% if bar_color_rgb %} style="background-color:rgba({{bar_color_rgb[0]}},{{bar_color_rgb[1]}},{{bar_color_rgb[2]}},0.6);" {% endif %}>
             {% if content.acf_fc_layout == '1_col_normal' %}
               {% include 'section.twig' %}
             {% elseif content.acf_fc_layout == '2_col_image_text' %}
