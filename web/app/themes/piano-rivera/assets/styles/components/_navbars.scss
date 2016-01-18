@@ -1,14 +1,18 @@
 // Wrapper and base class
 .navbar {
   border: none;
+  margin-bottom: 0;
 }
 
 // Navbar collapse (body)
 .navbar-collapse {
-  padding-right: $navbar-padding-horizontal;
-  padding-left:  $navbar-padding-horizontal;
+  padding-right: 0;
+  padding-left:  0;
   border-top: none;
   box-shadow: none;
+  @media (max-width: $grid-float-breakpoint) {
+    background: $navbar-default-bg;
+  }
 }
 
 // Brand/project name
@@ -23,26 +27,26 @@
 // Navbar toggle
 .navbar-toggle {
   position: absolute;
-  top: ($grid-gutter-width / 2);
+  top: 0;
   right: 0;
   margin: 0 ($grid-gutter-width / 2) 0 0;
-  padding: 0;
+  padding: $navbar-padding-vertical 0;
   border: none;
   // Bars
   .icon-bar {
     display: block;
     width: $grid-gutter-width;
-    height: 3px;
     border-radius: 0;
     transition: all 0.25s ease;
   }
+  .icon-bar,
   .icon-bar + .icon-bar {
-    margin-top: 7px;
+    margin-top: 6px;
   }
   &:hover,
   &:focus {
     .icon-bar {
-      background: $gray;
+      background: $gray-light;
     }
   }
 }
@@ -107,7 +111,20 @@
     img.iclflag {
       display: inline-block;
       height: $font-size-base;
-      width: auto;
+      width: $font-size-base * (4 / 3);
+    }
+  }
+  @media (max-width: $grid-float-breakpoint) {
+    float: none;
+    width: 100%;
+    ul, li {width: 100%; }
+    a {
+      padding: $navbar-padding-vertical $navbar-padding-horizontal;
+      &.lang_sel_sel {
+        &:after {
+          content: '';
+        }
+      }
     }
   }
 }

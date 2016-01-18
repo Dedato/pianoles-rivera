@@ -17,7 +17,7 @@ section {
       position: absolute;
       top: 50%; 
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%) translateY(-50%);
       margin: 0;
       padding: 0;
       min-width: 100%;
@@ -62,19 +62,25 @@ section {
         li {
           margin-bottom: $grid-gutter-width;
           .list-icon {
-            text-align: center;
-            font-size: 100px; // should be in 20px grid
+            line-height: 0;
+            margin-bottom: $grid-gutter-width / 2;
+            float: none;
+            text-align: left;
+            font-size: 60px; // should be in 20px grid
             .lnr {vertical-align: top; }
           }
           .list-title {font-style: italic; }
           .list-content {}
           // Every other li
-          &:nth-child(odd) {
+          @media (min-width: $screen-xs-min) {
             .list-icon {
-              float: none;
-              @media (min-width: $screen-sm-min) {
-                float: right;
-              }
+              margin-bottom: 0;
+              float: left;
+              text-align: center;
+              font-size: 100px; // should be in 20px grid
+            }
+            &:nth-child(odd) {
+              .list-icon {float: right; }
             }
           }
         }

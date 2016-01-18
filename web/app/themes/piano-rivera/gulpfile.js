@@ -21,6 +21,7 @@ var sourcemaps   = require('gulp-sourcemaps');
 var uglify       = require('gulp-uglify');
 
 // ## Custom
+var bless        = require('gulp-bless');
 var vinylftp     = require('vinyl-ftp');
 var emptycache   = require('gulp-open');
 var ftppass      = require('./.ftppass.json');
@@ -108,7 +109,8 @@ var cssTasks = function(filename) {
       browsers: [
         'last 2 versions',
         'android 4',
-        'opera 12'
+        'opera 12',
+        'ie >= 9'
       ]
     })
     .pipe(minifyCss, {
@@ -191,6 +193,16 @@ gulp.task('styles', ['wiredep'], function() {
     .pipe(writeToManifest('styles'));
 });
 
+
+// ### Bless
+// CSS post-processor which splits CSS files suitably for Internet Explorer < 10. Bless + Gulp = gulp-bless.
+gulp.task('bless', function() {  
+	return gulp.src(path.dist + 'styles/*.css')
+  .pipe(bless())
+  .pipe(gulp.dest(path.dist + 'styles'));
+});
+
+
 // ### Scripts
 // `gulp scripts` - Runs JSHint then compiles, combines, and optimizes Bower JS
 // and project JS.
@@ -249,7 +261,7 @@ gulp.task('upload', function(callback) {
 // ### Remove remote dist directory
 gulp.task( 'rmdirdist', function (cb) {
   var conn = vinylftp.create( ftppass );
-  conn.rmdir( '/public_html/app/themes/pianoles-rivera/dist', cb );
+  conn.rmdir( '/public_html/app/themes/piano-rivera/dist', cb );
 });
 
 // ### Upload Vinyl FTP
@@ -274,14 +286,14 @@ gulp.task('ftpupload', function (callback) {
   // using base = '.' will transfer everything to /public_html correctly
   // turn off buffering in gulp.src for best performance
   return gulp.src( globs, { base: '.', buffer: false } )
-    .pipe( conn.newer( '/public_html/app/themes/pianoles-rivera' ) ) // only upload newer files
-    .pipe( conn.dest( '/public_html/app/themes/pianoles-rivera' ) );
+    .pipe( conn.newer( '/public_html/app/themes/piano-rivera' ) ) // only upload newer files
+    .pipe( conn.dest( '/public_html/app/themes/piano-rivera' ) );
 });
 
 // ### Empty Cache
 gulp.task('emptycache', function(cb) {
   gulp.src('')
-  .pipe(emptycache({uri: 'http://www.pianoles-rivera.nl/?w3tcEmptyCache=' + process.env.W3T_CACHE_SECRET}));
+  .pipe(emptycache({uri: 'http://www.piano-rivera.nl/?w3tcEmptyCache=' + process.env.W3T_CACHE_SECRET}));
 });
 
 
@@ -305,6 +317,7 @@ gulp.task('watch', function() {
     }
   });
   gulp.watch([path.source + 'styles/**/*'], ['styles']);
+  gulp.watch([path.source + 'styles/**/*'], ['bless']);
   gulp.watch([path.source + 'scripts/**/*'], ['jshint', 'scripts']);
   gulp.watch([path.source + 'fonts/**/*'], ['fonts']);
   gulp.watch([path.source + 'images/**/*'], ['images']);
@@ -317,6 +330,7 @@ gulp.task('watch', function() {
 gulp.task('build', function(callback) {  
   var tasks = [
     'styles',
+    'bless',
     'scripts', 
     ['fonts', 'images']
   ];

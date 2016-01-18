@@ -35,7 +35,7 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "5.3.3",
+        "version": "5.3.3.1",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -47,7 +47,7 @@
       "type": "package",
       "package": {
         "name": "wpml/sitepress-multilingual-cms",
-        "version": "3.3.3",
+        "version": "3.3.5",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -59,7 +59,7 @@
       "type": "package",
       "package": {
         "name": "wpml/wpml-string-translation",
-        "version": "2.3.4",
+        "version": "2.3.5",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -71,7 +71,7 @@
       "type": "package",
       "package": {
         "name": "wpml/wpml-translation-management",
-        "version": "2.1.3",
+        "version": "2.1.4",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -88,9 +88,9 @@
     "roots/soil": "^3.6",
     "jarednova/timber": "^0.22.0",
     "advanced-custom-fields/advanced-custom-fields-pro": "5.3.*",
-    "wpml/sitepress-multilingual-cms": "3.3.3",
-    "wpml/wpml-string-translation": "2.3.4",
-    "wpml/wpml-translation-management": "2.1.3",
+    "wpml/sitepress-multilingual-cms": "3.3.*",
+    "wpml/wpml-string-translation": "2.3.*",
+    "wpml/wpml-translation-management": "2.1.*",
     "wpackagist-plugin/restricted-site-access": "5.*",
     "wpackagist-plugin/better-wp-security": "^5.1"
   },
