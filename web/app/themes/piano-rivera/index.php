@@ -13,9 +13,10 @@
  * @since   Timber 0.1
  */
 
-$context                = Timber::get_context();
-$context['post']        = Timber::get_post();
-$context['sections']    = get_field('one_page_sections');
-$templates              = array('index.twig');
+$context                  = Timber::get_context();
+$context['post']          = Timber::get_post();
+$context['sections']      = get_field('one_page_sections');
+$context['section_home']  = get_field('one_page_sections')[0];
+$templates                = array('index.twig');
 
 Timber::render( $templates, $context );

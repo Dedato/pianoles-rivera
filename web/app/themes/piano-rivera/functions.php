@@ -14,6 +14,7 @@ $sage_includes = [
   'lib/extras.php',         // Custom functions
   'lib/setup.php',          // Theme setup
   'lib/titles.php',         // Page titles
+  'lib/translate.php',      // Translate function for Twig
   'lib/timber.php',         // Timber functionality
   'lib/resp-picture.php',   // Responsive Picture element
   //'lib/wrapper.php',      // Theme wrapper class

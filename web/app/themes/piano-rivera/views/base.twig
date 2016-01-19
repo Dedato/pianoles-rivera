@@ -2,7 +2,7 @@
 	  {% include 'head.twig' %}
 	{% endblock %}
   </head>
-	<body id="page-top" class="{{body_class}}" data-template="base.twig" data-spy="scroll" data-target=".navbar-fixed-top">
+	<body id="{{section_home.section_nav_title|sanitize}}" class="{{body_class}}" data-template="base.twig" data-spy="scroll" data-target=".navbar-fixed-top">
 	  <!--[if IE 8]>
       <div class="alert alert-warning">
         {{ __('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'gloam') }}

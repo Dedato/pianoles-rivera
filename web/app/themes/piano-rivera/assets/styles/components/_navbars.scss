@@ -75,10 +75,8 @@
 // WPML Default Language Switcher
 #lang_sel {
   float: right;
-  ul {display: inline-block; }
-  li {width: auto; }
   a {
-    padding: (($navbar-height - $font-size-base) / 2) 0;
+    padding: (($navbar-height - $font-size-base) / 2) 0 (($navbar-height - $font-size-base) / 2) ($grid-gutter-width / 2);
     background: none;
     border: none;
     color: $white;
@@ -93,18 +91,13 @@
         top: (($navbar-height - $font-size-base) / 2);
         right: 0;
         height: $font-size-base;
+        @extend .lnr;
         content: '';
-        -moz-osx-font-smoothing: grayscale;
-        font-family: Linearicons-Free;
-        font-style: normal;
-        font-variant: normal;
-        font-weight: 400;
-        line-height: 1;
-        text-transform: none;
 			}
 			&:hover,
 			&:focus,
 			&.focus {
+  			background: none;
   			color: $navbar-default-link-hover-color;
 			}
     }
@@ -112,6 +105,29 @@
       display: inline-block;
       height: $font-size-base;
       width: $font-size-base * (4 / 3);
+    }
+  }
+  li {width: auto; }
+  ul {
+    display: inline-block;
+    ul {
+      border-top: none;
+      top: $navbar-height;
+      width: auto;
+      a {
+        padding: 0 ($grid-gutter-width / 2) ($grid-gutter-width / 2);
+        background: rgba($navbar-default-bg, 0.25) !important;
+        border: none;
+        color: $white;
+        line-height: 0;
+        transition: background .25s ease;
+        &:hover,
+  			&:focus,
+  			&.focus {
+    			background: rgba($navbar-default-bg, 0.85);
+    			color: $navbar-default-link-hover-color;
+  			}
+      }
     }
   }
   @media (max-width: $grid-float-breakpoint) {

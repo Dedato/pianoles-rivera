@@ -220,16 +220,16 @@
         },
         {
             "name": "jarednova/timber",
-            "version": "0.22.4",
+            "version": "0.22.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jarednova/timber.git",
-                "reference": "901b4e0d32d20c5d57fb3fe7027a0a27b1a5c3e0"
+                "reference": "96e6a228b1b8b03ab55270ba3a2966c26522a01e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jarednova/timber/zipball/901b4e0d32d20c5d57fb3fe7027a0a27b1a5c3e0",
-                "reference": "901b4e0d32d20c5d57fb3fe7027a0a27b1a5c3e0",
+                "url": "https://api.github.com/repos/jarednova/timber/zipball/96e6a228b1b8b03ab55270ba3a2966c26522a01e",
+                "reference": "96e6a228b1b8b03ab55270ba3a2966c26522a01e",
                 "shasum": ""
             },
             "require": {
@@ -243,7 +243,7 @@
                 "jarednova/markdowndocs": "dev-master",
                 "phpdocumentor/phpdocumentor": "2.*",
                 "phpunit/phpunit": "~4.0",
-                "satooshi/php-coveralls": "dev-master",
+                "satooshi/php-coveralls": "1.0.*",
                 "wp-cli/wp-cli": "*",
                 "wpackagist-plugin/advanced-custom-fields": "4.*"
             },
@@ -272,7 +272,7 @@
                 "timber",
                 "twig"
             ],
-            "time": "2015-12-17 14:30:26"
+            "time": "2016-01-18 18:00:17"
         },
         {
             "name": "johnpbloch/wordpress",
@@ -566,15 +566,15 @@
         },
         {
             "name": "wpackagist-plugin/better-wp-security",
-            "version": "5.1.1",
+            "version": "5.2.0",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/better-wp-security/",
-                "reference": "tags/5.1.1"
+                "reference": "tags/5.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/better-wp-security.5.1.1.zip",
+                "url": "https://downloads.wordpress.org/plugin/better-wp-security.5.2.0.zip",
                 "reference": null,
                 "shasum": null
             },
