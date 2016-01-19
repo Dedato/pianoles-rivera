@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  {% set image = TimberImage(section_home.section_bg_image) %}
+  <section class="error-404 has-bg" {% if image %}style="background-image:url('{{image.src|resize(1680)}}');"{% endif %}>
+    <div class="center">
+  	  <div class="section-header container"><h1>{{ function('wpml_translate_string', 'page-not-found') }}</h1></div>
+      <div class="section-content container">
+        <div class="alert alert-warning text-center">
+          <p>{{ function('wpml_translate_string', 'could-not-find') }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
