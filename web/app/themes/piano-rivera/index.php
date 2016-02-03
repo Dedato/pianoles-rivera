@@ -19,4 +19,4 @@ $context['sections']      = get_field('one_page_sections');
 $context['section_home']  = get_field('one_page_sections')[0];
 $templates                = array('index.twig');
 
-Timber::render( $templates, $context );
+Timber::render( $templates, $context, [600, 0] );
