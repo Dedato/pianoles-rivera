@@ -35,7 +35,7 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "5.3.3.1",
+        "version": "5.3.3.2",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -47,7 +47,7 @@
       "type": "package",
       "package": {
         "name": "wpml/sitepress-multilingual-cms",
-        "version": "3.3.5",
+        "version": "3.3.6",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -59,7 +59,7 @@
       "type": "package",
       "package": {
         "name": "wpml/wpml-string-translation",
-        "version": "2.3.5",
+        "version": "2.3.6.1",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -71,7 +71,7 @@
       "type": "package",
       "package": {
         "name": "wpml/wpml-translation-management",
-        "version": "2.1.4",
+        "version": "2.1.5",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",

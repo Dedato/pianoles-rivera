@@ -4,12 +4,12 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6f018a927bd3fb8c3f5165a4406122a0",
-    "content-hash": "ac393e7603fa23dd9511118c1564f5c5",
+    "hash": "12c884b0dc263b8739f44c56f00b2077",
+    "content-hash": "28d08b1dc532fa0666a4b9a2a8f4c084",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.3.3.1",
+            "version": "5.3.3.2",
             "dist": {
                 "type": "zip",
                 "url": "http://connect.advancedcustomfields.com/index.php?p=pro&a=download&k=b3JkZXJfaWQ9MzQ1ODJ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE0LTA3LTEyIDE3OjE5OjU3",
@@ -122,20 +122,20 @@
         },
         {
             "name": "composer/installers",
-            "version": "v1.0.22",
+            "version": "v1.0.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "bd9b14f094c89c8b5804a4e41edeb7853bb85046"
+                "reference": "6213d900e92647831f7a406d5c530ea1f3d4360e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/bd9b14f094c89c8b5804a4e41edeb7853bb85046",
-                "reference": "bd9b14f094c89c8b5804a4e41edeb7853bb85046",
+                "url": "https://api.github.com/repos/composer/installers/zipball/6213d900e92647831f7a406d5c530ea1f3d4360e",
+                "reference": "6213d900e92647831f7a406d5c530ea1f3d4360e",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "1.0.0"
+                "composer-plugin-api": "^1.0"
             },
             "replace": {
                 "roundcube/plugin-installer": "*",
@@ -216,7 +216,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2015-10-29 23:28:48"
+            "time": "2016-01-27 12:54:22"
         },
         {
             "name": "jarednova/timber",
@@ -276,16 +276,16 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.4.1",
+            "version": "4.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "85d6a8c16c7e8bb369e7530d3676d16618f68e24"
+                "reference": "fe9320de0793602084c600e22c0c5e0bb601a264"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/85d6a8c16c7e8bb369e7530d3676d16618f68e24",
-                "reference": "85d6a8c16c7e8bb369e7530d3676d16618f68e24",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/fe9320de0793602084c600e22c0c5e0bb601a264",
+                "reference": "fe9320de0793602084c600e22c0c5e0bb601a264",
                 "shasum": ""
             },
             "require": {
@@ -309,7 +309,7 @@
                 "blog",
                 "cms"
             ],
-            "time": "2016-01-06 18:46:15"
+            "time": "2016-02-02 17:16:14"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -403,16 +403,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.23.3",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "ae53fc2c312fdee63773b75cb570304f85388b08"
+                "reference": "3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ae53fc2c312fdee63773b75cb570304f85388b08",
-                "reference": "ae53fc2c312fdee63773b75cb570304f85388b08",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8",
+                "reference": "3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8",
                 "shasum": ""
             },
             "require": {
@@ -425,7 +425,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.23-dev"
+                    "dev-master": "1.24-dev"
                 }
             },
             "autoload": {
@@ -460,7 +460,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-01-11 14:02:19"
+            "time": "2016-01-25 21:22:18"
         },
         {
             "name": "upstatement/routes",
@@ -606,7 +606,7 @@
         },
         {
             "name": "wpml/sitepress-multilingual-cms",
-            "version": "3.3.5",
+            "version": "3.3.6",
             "dist": {
                 "type": "zip",
                 "url": "https://wpml.org/?download=6088&user_id=11458&subscription_key=$P$Bq3a7UwmN7/eQJJ5GKV8Ek3NCZT..",
@@ -617,7 +617,7 @@
         },
         {
             "name": "wpml/wpml-string-translation",
-            "version": "2.3.5",
+            "version": "2.3.6.1",
             "dist": {
                 "type": "zip",
                 "url": "https://wpml.org/?download=6092&user_id=11458&subscription_key=$P$Bq3a7UwmN7/eQJJ5GKV8Ek3NCZT..",
@@ -628,7 +628,7 @@
         },
         {
             "name": "wpml/wpml-translation-management",
-            "version": "2.1.4",
+            "version": "2.1.5",
             "dist": {
                 "type": "zip",
                 "url": "https://wpml.org/?download=6094&user_id=11458&subscription_key=$P$Bq3a7UwmN7/eQJJ5GKV8Ek3NCZT..",
