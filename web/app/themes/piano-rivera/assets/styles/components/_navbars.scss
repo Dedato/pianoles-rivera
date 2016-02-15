@@ -65,9 +65,17 @@
   &.top-nav-collapse {
     background: rgba($navbar-default-bg, 0.85);
   }
+  .navbar-brand {
+    &:focus {
+      color: $navbar-default-brand-color;
+    }
+  }
   .navbar-nav {
     > li > a {
       transition: all .25s ease;
+      &:focus {
+        color: $navbar-default-link-color;
+      }
     }
   }
 }
