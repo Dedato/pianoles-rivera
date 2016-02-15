@@ -4,12 +4,12 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "12c884b0dc263b8739f44c56f00b2077",
-    "content-hash": "28d08b1dc532fa0666a4b9a2a8f4c084",
+    "hash": "9c41871bfa850e07695f4f5a0d1d4ad3",
+    "content-hash": "f1489dc160c92b36c9d7a16ac699bee1",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.3.3.2",
+            "version": "5.3.4",
             "dist": {
                 "type": "zip",
                 "url": "http://connect.advancedcustomfields.com/index.php?p=pro&a=download&k=b3JkZXJfaWQ9MzQ1ODJ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE0LTA3LTEyIDE3OjE5OjU3",
@@ -71,16 +71,16 @@
         },
         {
             "name": "asm89/twig-cache-extension",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/asm89/twig-cache-extension.git",
-                "reference": "127410728db193a88254c399e3455274fc05fa5d"
+                "reference": "76a801d6da8e1a1015af974d93df4ade0dda7267"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/asm89/twig-cache-extension/zipball/127410728db193a88254c399e3455274fc05fa5d",
-                "reference": "127410728db193a88254c399e3455274fc05fa5d",
+                "url": "https://api.github.com/repos/asm89/twig-cache-extension/zipball/76a801d6da8e1a1015af974d93df4ade0dda7267",
+                "reference": "76a801d6da8e1a1015af974d93df4ade0dda7267",
                 "shasum": ""
             },
             "require": {
@@ -93,7 +93,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.1-dev"
                 }
             },
             "autoload": {
@@ -118,7 +118,7 @@
                 "extension",
                 "twig"
             ],
-            "time": "2015-10-17 11:55:02"
+            "time": "2016-02-14 13:52:38"
         },
         {
             "name": "composer/installers",
@@ -566,15 +566,15 @@
         },
         {
             "name": "wpackagist-plugin/better-wp-security",
-            "version": "5.2.0",
+            "version": "5.2.1",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/better-wp-security/",
-                "reference": "tags/5.2.0"
+                "reference": "tags/5.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/better-wp-security.5.2.0.zip",
+                "url": "https://downloads.wordpress.org/plugin/better-wp-security.5.2.1.zip",
                 "reference": null,
                 "shasum": null
             },
