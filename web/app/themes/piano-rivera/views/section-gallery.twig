@@ -1,0 +1,38 @@
+<div class="container">
+  {% if content.layout_gallery %}
+    <div class="layout_gallery owl-carousel">
+      {% for photo in content.layout_gallery %}
+        <figure class="item">        
+          {% set image = TimberImage(photo.ID) %}
+          {# Define the image sizes #}
+          {% set image_sizes  = [[
+            [750, 0, 'center', 767], 
+            [738, 0, 'center']
+          ], [750, 0, 'center'] ] %}
+          {# Define picture sources #}
+          {% set sources      = [] %}
+          {% for size in image_sizes[0] %}
+            {% if image.width >= (size[0] * 2) %}
+              {% set sources = sources|merge(
+                [{ src1x:       image.src|resize(size[0], size[1], size[2]), 
+                   src2x:       image.src|resize((size[0] * 2), (size[1] * 2), size[2]), 
+                   breakpoint:  size[3] 
+                }]
+              ) %}
+            {% else %}
+              {% set sources = sources|merge(
+                [{ src1x:       image.src|resize(size[0], size[1], size[2]),
+                   breakpoint:  size[3] 
+                }]
+              ) %}
+            {% endif %}
+          {% endfor %}
+          {# Define the fallback image #}
+          {% set fallback = image.src|resize(image_sizes[1][0], image_sizes[1][1], image_sizes[1][2]) %}
+          {{ function('Roots\\Sage\\RespPicture\\create_resp_picture', loop.index0, '', true, sources, fallback, image.alt) }}
+          <figcaption>{{image.caption}}</figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
