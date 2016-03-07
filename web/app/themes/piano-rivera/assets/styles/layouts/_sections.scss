@@ -2,6 +2,7 @@ section {
   position: relative;
   display: block;
   width: 100%;
+  min-height: 500px;
   overflow: hidden;
   padding: ($navbar-height + $grid-gutter-width) 0 0;
   backface-visibility: hidden;
@@ -58,6 +59,12 @@ section {
     &.layout_1_col_normal {}
     &.layout_2_col_image_text {
       padding: $grid-gutter-width 0;
+      .layout_image {
+        margin-bottom: $grid-gutter-width;
+        @media (min-width: $screen-sm-min) {
+          margin-bottom: 0;
+        }
+      }
     }
     &.layout_icon_list {
       .icon-list {
@@ -84,6 +91,43 @@ section {
             }
             &:nth-child(odd) {
               .list-icon {float: right; }
+            }
+          }
+        }
+      }
+    }
+    &.layout_photo_gallery {
+      .layout_gallery {
+        .item {
+          figcaption {
+            margin: 5px 0;
+            font-size: $font-size-small;
+            font-style: italic;
+          }
+        }
+        .owl-dots {
+          margin: 5px 0;
+          .owl-dot {
+            display: inline-block;
+            zoom: 1;
+            *display: inline;
+            span {
+              cursor: pointer;
+              width: 10px;
+              height: 10px;
+              margin: 0 10px 0 0;
+              background: $white;
+              opacity: 0.6;
+              display: block;
+              -webkit-backface-visibility: visible;
+              transition: opacity 0.2s ease;
+              border-radius: 100%;
+            }  
+            &.active,
+            &:hover {
+              span {
+                opacity: 1;
+              }
             }
           }
         }
