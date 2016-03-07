@@ -96,6 +96,8 @@
               {% include 'section-image.twig' %}
             {% elseif content.acf_fc_layout == 'icon_list' %}
               {% include 'section-icon-list.twig' %}
+            {% elseif content.acf_fc_layout == 'photo_gallery' %}
+              {% include 'section-gallery.twig' %}
             {% elseif content.acf_fc_layout == 'color_bar' %}
               {% include 'section-color-bar.twig' %}   
             {% endif %}
