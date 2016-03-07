@@ -7,7 +7,7 @@
     {% endif %}
   {% endif %}
   <div class="row">
-    <div class="col-xs-12 col-sm-3">
+    <div class="layout_image col-xs-12 col-sm-3">
       {% if content.layout_image %}
         {% set image        = TimberImage(content.layout_image) %}
         {# Define the image sizes #}
@@ -38,6 +38,6 @@
         {{ function('Roots\\Sage\\RespPicture\\create_resp_picture', 0, '', false, sources, fallback, image.alt) }}
       {% endif %}
     </div>
-    <div class="col-xs-12 col-sm-5">{{content.layout_content}}</div>
+    <div class="layout_text col-xs-12 col-sm-5">{{content.layout_content}}</div>
   </div>
 </div>
