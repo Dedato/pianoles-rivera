@@ -60,7 +60,7 @@
 // Default navbar
 .navbar-default {
   border: none;
-  background: rgba($navbar-default-bg, 0.25);
+  background: rgba($navbar-default-bg, 0.5);
   transition: background .25s ease;
   &.top-nav-collapse {
     background: rgba($navbar-default-bg, 0.85);
@@ -124,7 +124,7 @@
       width: auto;
       a {
         padding: 0 ($grid-gutter-width / 2) ($grid-gutter-width / 2);
-        background: rgba($navbar-default-bg, 0.25) !important;
+        background: rgba($navbar-default-bg, 0.5) !important;
         border: none;
         color: $white;
         line-height: 0;
@@ -140,13 +140,26 @@
   }
   @media (max-width: $grid-float-breakpoint) {
     float: none;
-    width: 100%;
-    ul, li {width: 100%; }
     a {
       padding: $navbar-padding-vertical $navbar-padding-horizontal;
       &.lang_sel_sel {
+        float: left;
+        display: inline-block;
         &:after {
           content: '';
+        }
+      }
+    }
+    ul {
+      ul {
+        position: relative;
+        top: 0;
+        display: inline-block;
+        float: left;
+        height: auto;
+        visibility: visible;
+        a {
+          padding: $navbar-padding-vertical $navbar-padding-horizontal;
         }
       }
     }
