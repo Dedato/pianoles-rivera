@@ -48,6 +48,21 @@
     'home': {
       init: function() {
         // JavaScript to be fired on the home page
+        $('.owl-carousel').each(function() {
+          section_id = $(this).parents('section').attr('id');
+          console.log(section_id);
+          $('#' + section_id + ' .layout_gallery').owlCarousel({
+            animateOut:   'fadeOut',
+            animateIn:    'fadeIn',
+            items:        1,
+            loop:         false,
+            margin:       0,
+            nav:          false,
+            dots:         true,
+            autoplay:     true,
+            autoHeight:   true
+          });
+        });
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
