@@ -220,16 +220,16 @@
         },
         {
             "name": "jarednova/timber",
-            "version": "0.22.5",
+            "version": "0.22.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jarednova/timber.git",
-                "reference": "96e6a228b1b8b03ab55270ba3a2966c26522a01e"
+                "url": "https://github.com/timber/timber.git",
+                "reference": "06e7faded55fcbcedb34d753bc93987cab4ee978"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jarednova/timber/zipball/96e6a228b1b8b03ab55270ba3a2966c26522a01e",
-                "reference": "96e6a228b1b8b03ab55270ba3a2966c26522a01e",
+                "url": "https://api.github.com/repos/timber/timber/zipball/06e7faded55fcbcedb34d753bc93987cab4ee978",
+                "reference": "06e7faded55fcbcedb34d753bc93987cab4ee978",
                 "shasum": ""
             },
             "require": {
@@ -272,7 +272,7 @@
                 "timber",
                 "twig"
             ],
-            "time": "2016-01-18 18:00:17"
+            "time": "2016-03-13 15:44:19"
         },
         {
             "name": "johnpbloch/wordpress",
@@ -361,16 +361,16 @@
         },
         {
             "name": "roots/soil",
-            "version": "3.6.2",
+            "version": "3.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/roots/soil.git",
-                "reference": "8b534d4b271033d22b8fa0d055c740f7f9c4ca58"
+                "reference": "085fd3c9b16df5b72dce4fba09de0207937ef721"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/roots/soil/zipball/8b534d4b271033d22b8fa0d055c740f7f9c4ca58",
-                "reference": "8b534d4b271033d22b8fa0d055c740f7f9c4ca58",
+                "url": "https://api.github.com/repos/roots/soil/zipball/085fd3c9b16df5b72dce4fba09de0207937ef721",
+                "reference": "085fd3c9b16df5b72dce4fba09de0207937ef721",
                 "shasum": ""
             },
             "require": {
@@ -399,7 +399,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2015-12-24 19:42:34"
+            "time": "2016-03-07 19:49:21"
         },
         {
             "name": "twig/twig",
