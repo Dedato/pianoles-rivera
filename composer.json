@@ -24,7 +24,8 @@
     "forum": "https://discourse.roots.io/category/bedrock"
   },
   "config": {
-    "preferred-install": "dist"
+    "preferred-install": "dist",
+    "secure-http": false
   },
   "repositories": [
     {
@@ -35,7 +36,7 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "5.3.4",
+        "version": "5.3.6",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
