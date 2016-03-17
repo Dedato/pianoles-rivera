@@ -569,7 +569,7 @@
             "version": "5.3.3",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/better-wp-security/",
+                "url": "https://plugins.svn.wordpress.org/better-wp-security/",
                 "reference": "tags/5.3.3"
             },
             "dist": {
@@ -589,7 +589,7 @@
             "version": "5.1",
             "source": {
                 "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/restricted-site-access/",
+                "url": "https://plugins.svn.wordpress.org/restricted-site-access/",
                 "reference": "tags/5.1"
             },
             "dist": {
