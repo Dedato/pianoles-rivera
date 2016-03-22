@@ -38,7 +38,6 @@ section {
   }
   // Center content vertically
   .center {width: 100%; }
-  
   &:first-of-type {
     .section-content {
       &.layout_2_col_image_text {
@@ -68,7 +67,7 @@ section {
   .has-bg & {
     h1, 
     h2 {
-      text-shadow: 0.05em 0.05em 0.05em rgba(0,0,0,0.25);
+      text-shadow: 0.05em 0.05em 0.05em rgba(0,0,0,0.5);
     }
   }
 }
@@ -82,7 +81,13 @@ section {
     }
     // With background image
     .has-bg & {
-      text-shadow: 0.1em 0.1em 0.1em rgba(0,0,0,0.25);
+      text-shadow: 0.05em 0.05em 0.05em rgba(0,0,0,0.5);
+    }
+  }
+  &.layout_1_col_normal {
+    // With background image
+    .has-bg & {
+      text-shadow: 0.075em 0.075em 0.01em rgba(0,0,0,0.5);
     }
   }
   &.layout_2_col_image_text {
@@ -96,7 +101,7 @@ section {
     .layout_text {
       // With background image
       .has-bg & {
-        text-shadow: 0.1em 0.1em 0.1em rgba(0,0,0,0.25);
+        text-shadow: 0.075em 0.075em 0.01em rgba(0,0,0,0.5);
       }
     }
   }
@@ -130,7 +135,7 @@ section {
       }
       // With background image
       .has-bg & {
-        text-shadow: 0.1em 0.1em 0.1em rgba(0,0,0,0.25);
+        text-shadow: 0.075em 0.075em 0.01em rgba(0,0,0,0.5);
       }
     }
   }
