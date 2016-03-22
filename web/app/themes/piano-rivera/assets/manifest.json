@@ -22,6 +22,11 @@
     },
     "jquery.js": {
       "bower": ["jquery"]
+    },
+    "modernizr.js": {
+      "files": [
+        "scripts/modernizr.js"
+      ]
     }
   },
   "config": {
