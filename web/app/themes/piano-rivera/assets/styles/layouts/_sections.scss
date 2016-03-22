@@ -34,6 +34,10 @@ section {
       img {
         @extend .fs-bg-img;
       }
+      // No Text Shadow support
+      .no-textshadow & {
+        opacity: 0.9;
+      }
     }
   }
   // Center content vertically
