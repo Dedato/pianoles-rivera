@@ -50,7 +50,6 @@
         // JavaScript to be fired on the home page
         $('.owl-carousel').each(function() {
           section_id = $(this).parents('section').attr('id');
-          console.log(section_id);
           $('#' + section_id + ' .layout_gallery').owlCarousel({
             animateOut:   'fadeOut',
             animateIn:    'fadeIn',
