@@ -15,6 +15,7 @@ function setup() {
   add_theme_support('soil-nice-search');
   add_theme_support('soil-jquery-cdn');
   add_theme_support('soil-relative-urls');
+  add_theme_support('soil-google-analytics', 'UA-4455192-25');
   
   define('GOOGLE_FONTS', 'Noto+Serif:400,400italic,700,700italic');
   
