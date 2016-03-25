@@ -84,3 +84,18 @@ function hex2rgb($hex) {
    //return implode(",", $rgb); // returns the rgb values separated by commas
    return $rgb; // returns an array with the rgb values
 }
+
+
+/*
+ * This allows us to automatically empty the cache during deployments
+ */
+$env = getenv('WP_ENV');
+if (!$env || $env === 'production') {
+  $secret = getenv('W3T_CACHE_SECRET');
+}
+
+if ( (!$env || $env === 'production') && !empty($_GET['w3tcEmptyCache']) && $_GET['w3tcEmptyCache'] == $secret && function_exists('w3tc_pgcache_flush') ) {
+  // Empty the W3 Total Cache
+  w3tc_pgcache_flush();
+  die('W3 Total Cache Cleared');
+}
