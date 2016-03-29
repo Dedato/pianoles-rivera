@@ -82,7 +82,9 @@
 
 // WPML Default Language Switcher
 #lang_sel {
-  float: right;
+  position: absolute;
+  right: ($grid-gutter-width / 2);
+  top: 0;
   a {
     padding: (($navbar-height - $font-size-base) / 2) 0 (($navbar-height - $font-size-base) / 2) ($grid-gutter-width / 2);
     background: none;
@@ -139,7 +141,8 @@
     }
   }
   @media (max-width: $grid-float-breakpoint) {
-    float: none;
+    position: relative;
+    right: auto;
     a {
       padding: $navbar-padding-vertical $navbar-padding-horizontal;
       &.lang_sel_sel {
