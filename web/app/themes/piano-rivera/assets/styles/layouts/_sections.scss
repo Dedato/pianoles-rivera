@@ -88,12 +88,14 @@ section {
       text-shadow: 0.05em 0.05em 0.05em rgba(0,0,0,0.5);
     }
   }
+  // 1 Column Text
   &.layout_1_col_normal {
     // With background image
     .has-bg & {
       text-shadow: 0.075em 0.075em 0.01em rgba(0,0,0,0.5);
     }
   }
+  // 2 Columns Image & Text
   &.layout_2_col_image_text {
     padding: $grid-gutter-width 0;
     .layout_image {
@@ -109,6 +111,7 @@ section {
       }
     }
   }
+  // Icon List
   &.layout_icon_list {
     .icon-list {
       list-style: none;
@@ -143,6 +146,20 @@ section {
       }
     }
   }
+  // References List
+  &.layout_references_list {
+    .references-list {
+      li {
+        margin-bottom: $grid-gutter-width;
+        figcaption {
+          margin: 5px 0;
+          font-size: $font-size-small;
+          font-style: italic;
+        }
+      }
+    }
+  }
+  // Photo Gallery
   &.layout_photo_gallery {
     .layout_gallery {
       .item {
@@ -180,6 +197,7 @@ section {
       }
     }
   }
+  // Color Bar
   &.layout_color_bar {
     padding: ($grid-gutter-width / 2) 0;
   }

@@ -1,0 +1,12 @@
+<div class="container">
+  {% if content.layout_list %}
+    <ul class="references-list list-unstyled">
+      {% for item in content.layout_list %}
+        <li class="{{ cycle(['odd', 'even col-sm-offset-1'], loop.index0) }} col-sm-7">
+          <blockquote>{{item.reference_quote}}</blockquote>
+          <figcaption>{{item.reference_caption}}</figcaption>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
